@@ -7,15 +7,14 @@ on:
   pull_request:
     branches:
       - main
+    workflow_dispatch:
 
 jobs:
-  iac-security-scan:
-    name: Terraform Security Scan
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
       - name: Install Checkov
         run: pip install checkov
 
